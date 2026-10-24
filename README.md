@@ -1,6 +1,6 @@
 # 🛡️ Local SOC Log Analyzer & Attack Simulator
 
-![SOC Analyzer CI](https://github.com/TU_USUARIO/soc-log-analyzer/actions/workflows/ci.yml/badge.svg)
+![SOC Analyzer CI](https://github.com/resendizzz1/soc-log-analyzer/actions/workflows/ci.yml/badge.svg)
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -32,7 +32,7 @@ soc-log-analyzer/
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/TU_USUARIO/soc-log-analyzer.git
+   git clone https://github.com/resendizzz1/soc-log-analyzer.git
    cd soc-log-analyzer
    ```
 
