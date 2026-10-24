@@ -1,0 +1,32 @@
+name: SOC Analyzer CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-detection-rules:
+    name: Validate SOC Detection Rules (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run Unit Tests (True/False Positives Validation)
+        run: python -m unittest discover -v
+
+      - name: Run Attack Simulation & Verify JSON Report Generation
+        run: |
+          python soc_log_analyzer.py --simulate -o ci_alerts.json
+          test -f ci_alerts.json

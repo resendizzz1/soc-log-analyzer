@@ -1,5 +1,9 @@
 # 🛡️ Local SOC Log Analyzer & Attack Simulator
 
+![SOC Analyzer CI](https://github.com/TU_USUARIO/soc-log-analyzer/actions/workflows/ci.yml/badge.svg)
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 Herramienta ligera de análisis de registros (logs) y detección de intrusiones escrita en Python. Diseñada como laboratorio práctico de **Blue Team / Security Operations Center (SOC)** para identificar vectores de ataque comunes en servidores Linux y aplicaciones web.
 
 ## 🎯 Problema que resuelve
@@ -9,17 +13,19 @@ En entornos de monitoreo de seguridad, la revisión manual de archivos `auth.log
 - **Detección por Firmas (Web Attacks):** Identifica intentos de **SQL Injection (SQLi)** y **Path Traversal (LFI)** en registros de servidores HTTP (Apache/Nginx).
 - **Correlación de Eventos (Fuerza Bruta):** Agrupa intentos fallidos de autenticación SSH por dirección IP e identifica ataques de diccionario o enumeración de usuarios.
 - **Generador de Tráfico de Ataque (`--simulate`):** Incluye un módulo para generar logs sintéticos de ataques reales y validar las reglas de detección sin requerir infraestructura externa.
-- **Exportación Estructurada:** Genera reportes legibles en CLI y exporta evidencias en formato `JSON` (Timestamp, Severidad, IP de origen, Payload y Línea de registro).
+- **Pruebas Unitarias y CI/CD (DevSecOps):** Suite de pruebas automatizadas (`unittest`) e integración continua con **GitHub Actions** para validar reglas de detección y prevenir falsos positivos.
 - **Cero Dependencias Externas:** Construido 100% con la librería estándar de Python 3 para máxima portabilidad.
 
 ## 📂 Estructura del Proyecto
 ```text
 soc-log-analyzer/
-├── soc_log_analyzer.py   # Motor principal de análisis y simulación
-├── sample_security.log   # Archivo de logs de ejemplo (generado con --simulate)
-├── soc_alerts.json       # Ejemplo de salida de alertas en formato JSON
-├── .gitignore            # Archivos ignorados por control de versiones
-└── README.md             # Documentación técnica del proyecto
+├── .github/workflows/ci.yml   # Pipeline CI/CD en GitHub Actions
+├── soc_log_analyzer.py        # Motor principal de análisis y simulación
+├── test_soc_log_analyzer.py   # Suite de pruebas unitarias (Verdaderos/Falsos Positivos)
+├── sample_security.log        # Archivo de logs de ejemplo (generado con --simulate)
+├── soc_alerts.json            # Ejemplo de salida de alertas en formato JSON
+├── .gitignore                 # Archivos ignorados por control de versiones
+└── README.md                  # Documentación técnica del proyecto
 ```
 
 ## 🛠️ Uso Rápido
@@ -38,6 +44,11 @@ soc-log-analyzer/
 3. Analizar un archivo de log personalizado:
    ```bash
    python soc_log_analyzer.py -f /var/log/auth.log -o alertas.json
+   ```
+
+4. Ejecutar la suite de pruebas unitarias:
+   ```bash
+   python -m unittest discover -v
    ```
 
 ## 🧠 Mapeo con MITRE ATT&CK
