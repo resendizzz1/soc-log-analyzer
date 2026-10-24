@@ -1,0 +1,9 @@
+Oct 23 10:01:12 srv-web01 sshd[1024]: Accepted password for admin from 192.168.1.50 port 51234 ssh2
+Oct 23 10:02:01 srv-web01 sshd[1025]: Failed password for invalid user root from 45.33.32.156 port 44121 ssh2
+Oct 23 10:02:04 srv-web01 sshd[1026]: Failed password for invalid user root from 45.33.32.156 port 44122 ssh2
+Oct 23 10:02:07 srv-web01 sshd[1027]: Failed password for invalid user admin from 45.33.32.156 port 44123 ssh2
+Oct 23 10:02:10 srv-web01 sshd[1028]: Failed password for root from 45.33.32.156 port 44124 ssh2
+192.168.1.25 - - [23/Oct/2026:10:05:00 +0000] "GET /index.html HTTP/1.1" 200 1043
+185.220.101.4 - - [23/Oct/2026:10:06:15 +0000] "GET /login.php?user=admin'-- HTTP/1.1" 200 512
+185.220.101.4 - - [23/Oct/2026:10:06:30 +0000] "GET /products.php?id=1%20UNION%20SELECT%20username,password%20FROM%20users HTTP/1.1" 500 230
+103.14.26.99 - - [23/Oct/2026:10:08:11 +0000] "GET /download.php?file=../../../../etc/passwd HTTP/1.1" 403 189

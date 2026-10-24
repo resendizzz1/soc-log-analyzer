@@ -1,0 +1,37 @@
+[
+    {
+        "timestamp": "2026-10-23T18:25:25.126693",
+        "severity": "HIGH",
+        "type": "SQL Injection Attempt",
+        "source_ip": "185.220.101.4",
+        "evidence": "/login.php?user=admin'--",
+        "line_number": 7
+    },
+    {
+        "timestamp": "2026-10-23T18:25:25.126693",
+        "severity": "HIGH",
+        "type": "SQL Injection Attempt",
+        "source_ip": "185.220.101.4",
+        "evidence": "/products.php?id=1%20UNION%20SELECT%20username,password%20FROM%20users",
+        "line_number": 8
+    },
+    {
+        "timestamp": "2026-10-23T18:25:25.126693",
+        "severity": "HIGH",
+        "type": "Path Traversal Attempt",
+        "source_ip": "103.14.26.99",
+        "evidence": "/download.php?file=../../../../etc/passwd",
+        "line_number": 9
+    },
+    {
+        "timestamp": "2026-10-23T18:25:25.127688",
+        "severity": "MEDIUM",
+        "type": "SSH Brute Force Detected",
+        "source_ip": "45.33.32.156",
+        "attempts": 4,
+        "targeted_users": [
+            "admin",
+            "root"
+        ]
+    }
+]
